@@ -1,0 +1,43 @@
+{
+  "name": "file-mask-cli",
+  "version": "1.0.2",
+  "description": "file mask",
+  "bin": {
+    "file-mask-cli": "bin/file-mask-cli"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "node_modules"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "file",
+    "mask",
+    "cli",
+    "hide",
+    "absconditus",
+    "文件",
+    "遮掩",
+    "掩藏",
+    "拼接"
+  ],
+  "author": "Caize Chen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chencaize/file-mask-cli"
+  },
+  "dependencies": {
+    "chalk": "^4",
+    "cli-spinner": "^0.2.10",
+    "commander": "^10.0.0",
+    "compressing": "^1.9.0",
+    "eccrypto-js": "^5.4.0",
+    "fs-extra": "^11.1.0",
+    "handlebars": "^4.7.7",
+    "piscina": "^3.2.0"
+  }
+}

@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+const program = require("commander");
+const path = require("path");
+
+const { hide, show } = require(path.resolve(__dirname, "../lib/index.js"));
+
+//global options
+program.option('-id, --INPUT_DIR <INPUT_DIR>', "input dir")
+    .option('-od, --OUTPUT_DIR <OUTPUT_DIR>', 'output dir')
+    .option('-if, --INCLUDE_FILES <INCLUDE_FILES>', 'include files regx')
+    .option('-ef, --EXCLUDE_FILES <EXCLUDE_FILES>', 'exclude files regx')
+    .option('-cp, --COMPRESS_PASSWORD <COMPRESS_PASSWORD>', 'compress password')
+    .option('-cf, --CRYPTO_FILE <CRYPTO_FILE>', 'crypto file')
+    .option('-tn, --THREAD_NUMBER <THREAD_NUMBER>', 'thread number')
+    .option('-rt, --RETRY_TIMES <RETRY_TIMES>', 'retry times')
+
+//version
+program.version(require("../package.json").version, '-v, --version');
+
+//hide
+program.command('hide')
+    .option('-mf, --MASK_FILE <MASK_FILE>', 'mask file')
+    .description("hide file")
+    .action((option, cmd) => {
+        hide({ ...program.opts(), ...option });
+    })
+
+//show
+program.command('show')
+    .description("show file")
+    .action((option, cmd) => {
+        show({ ...program.opts(), ...option });
+    })
+
+
+program.parse(process.argv);
